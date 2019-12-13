@@ -1,12 +1,13 @@
 library(tidyverse)
 library(lubridate)
 
-calldata <- read_csv("April2019.csv")
+calldata <- read_csv("data.csv")
 
+# Set Agency ID 1 = Toms River Fire Dist. 2 = Ocean County Sheriff
 calldata['agency']=2
 
-calldata$sent <- dmy_hms(calldata$sent)
-calldata$received <- dmy_hms(calldata$received)
+calldata$sent <- mdy_hms(calldata$sent)
+calldata$received <- mdy_hms(calldata$received)
 
 
-write.csv(calldata,"calldata_cleaned.csv", row.names = TRUE)
+write.csv(calldata,"Month_cleaned.csv", row.names = TRUE)
